@@ -212,11 +212,13 @@ public class Board extends JPanel implements ActionListener {
     }
     private void checkCollision() {
     	
-    	// Check if all parts of the snake are in the game field.
+    	// If the head x,y matches any x,y of the body we collided.
+    	
         for (int z = snake_size; z > 0; z--)
             if ((z > 4) && (x[0] == x[z]) && (y[0] == y[z]))
                 inGame = false;
        
+        // Make sure all our parts are in the game field.
         if (y[0] > B_HEIGHT)
             inGame = false;
         
@@ -236,7 +238,6 @@ public class Board extends JPanel implements ActionListener {
      * The KeyAdapter makes sure that impossible scenarios are ignored.
      * E.g.: snake is going up and user presses down is an invalid move.
      * @author ChristopheRosaFreddy
-     *
      */
     private class TAdapter extends KeyAdapter {
 
@@ -245,28 +246,24 @@ public class Board extends JPanel implements ActionListener {
             int key = e.getKeyCode();
             
             if ((key == KeyEvent.VK_LEFT) && (!rightDirection)) {
-            	System.out.println("Pressed left");
                 leftDirection = true;
                 upDirection = false;
                 downDirection = false;
             }
 
             if ((key == KeyEvent.VK_RIGHT) && (!leftDirection)) {
-            	System.out.println("Pressed right");
                 rightDirection = true;
                 upDirection = false;
                 downDirection = false;
             }
 
             if ((key == KeyEvent.VK_UP) && (!downDirection)) {
-            	System.out.println("Pressed up");
                 upDirection = true;
                 rightDirection = false;
                 leftDirection = false;
             }
 
             if ((key == KeyEvent.VK_DOWN) && (!upDirection)) {
-            	System.out.println("Pressed down");
                 downDirection = true;
                 rightDirection = false;
                 leftDirection = false;
