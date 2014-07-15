@@ -2,6 +2,8 @@ package com.christophedetroyer.snake;
 
 import javax.swing.JFrame;
 
+import com.christophedetroyer.snake.board.Board;
+
 public class Snake extends JFrame {
 	/**
 	 * Simple constructor that creates a new JFrame and adds a 
@@ -9,9 +11,10 @@ public class Snake extends JFrame {
 	 */
 	public Snake()
 	{
-		//add(new Board());
+		add(new Board());
 		setTitle("Snake");
-		setResizable(false);
+		pack();
+		setResizable(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
