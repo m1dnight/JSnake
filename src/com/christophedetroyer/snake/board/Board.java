@@ -107,6 +107,7 @@ public class Board extends JPanel implements ActionListener {
     
     private void doDrawing(Graphics g)
     {
+    	drawScore(g);
     	if(gameState.isInGame())
     	{
     		// Draw the apple
@@ -140,6 +141,17 @@ public class Board extends JPanel implements ActionListener {
         g.drawString(msg, (B_WIDTH - metr.stringWidth(msg)) / 2, B_HEIGHT / 2);
     }
     
+    private void drawScore(Graphics g)
+    {
+    	String scoreMsg = "Score: " + gameState.getSnakeSize();
+        Font small = new Font("Helvetica", Font.BOLD, 14);
+        FontMetrics metr = getFontMetrics(small);
+
+        g.setColor(Color.white);
+        g.setFont(small);
+        g.drawString(scoreMsg,2,12);
+    }
+    
     /**************************************************************************/
     /*** KEYADAPTER TO HANDLE KEYEVENTS FROM USER *****************************/
     /**************************************************************************/
@@ -155,24 +167,28 @@ public class Board extends JPanel implements ActionListener {
             int key = e.getKeyCode();
             
             if ((key == KeyEvent.VK_LEFT) && (!gameState.isRightDirection())) {
+            	System.out.println("LEFT");
                 gameState.setLeftDirection(true);
                 gameState.setUpDirection(false);
                 gameState.setDownDirection(false);
             }
 
             if ((key == KeyEvent.VK_RIGHT) && (!gameState.isLeftDirection())) {
+            	System.out.println("RIGHT");
                 gameState.setRightDirection(true);
                 gameState.setUpDirection(false);
                 gameState.setDownDirection(false);
             }
 
             if ((key == KeyEvent.VK_UP) && (!gameState.isDownDirection())) {
+            	System.out.println("UP");
                 gameState.setUpDirection(true);
                 gameState.setRightDirection(false);
                 gameState.setLeftDirection(false);
             }
 
             if ((key == KeyEvent.VK_DOWN) && (!gameState.isUpDirection())) {
+            	System.out.println("DOWN");
                 gameState.setDownDirection(true);
                 gameState.setRightDirection(false);
                 gameState.setLeftDirection(false);
