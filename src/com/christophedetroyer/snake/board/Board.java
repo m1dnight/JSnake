@@ -26,7 +26,7 @@ public class Board extends JPanel implements ActionListener {
     private final int DOT_SIZE    = 10;  // Size of a snake joint
     private final int RAND_POS    = 29;  // Position of apple
     private final int DELAY       = 140;
-    private final int INIT_LENGTH = 5;
+    private final int INIT_LENGTH = 15;
     
     // Images
     private Image ball;

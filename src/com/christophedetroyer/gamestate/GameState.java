@@ -40,7 +40,7 @@ public class GameState {
     	for(int i = 0; i < initialSnakeSize; i++)
     	{
     		x[i] = (initialSnakeSize * 10) - i * 10;
-    		x[i] = (initialSnakeSize * 10);
+    		y[i] = (initialSnakeSize * 10);
     	}
     }
     
