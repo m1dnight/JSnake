@@ -5,6 +5,8 @@ import javax.swing.JFrame;
 import com.christophedetroyer.snake.board.Board;
 
 public class Snake extends JFrame {
+	private static final long serialVersionUID = 1L;
+
 	/**
 	 * Simple constructor that creates a new JFrame and adds a 
 	 * new board.

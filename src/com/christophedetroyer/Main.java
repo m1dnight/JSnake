@@ -1,4 +1,6 @@
-package com.christophedetroyer.snake;
+package com.christophedetroyer;
+
+import com.christophedetroyer.snake.Snake;
 
 
 

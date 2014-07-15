@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class Board extends JPanel implements ActionListener {
+	private static final long serialVersionUID = 1L;
 	// Constants
 	private final int B_WIDTH     = 300; // Board width
     private final int B_HEIGHT    = 300; // Board heigth
@@ -87,16 +88,14 @@ public class Board extends JPanel implements ActionListener {
     
     public void loadImages()
     {
-    	ImageIcon a = new ImageIcon("images/apple.png");
+    	System.out.println(getClass().getResource("/apple.png"));
+    	ImageIcon a = new ImageIcon(getClass().getResource("/apple.png"));
     	apple = a.getImage();
-    	ImageIcon b = new ImageIcon("images/body.png");
+    	ImageIcon b = new ImageIcon(getClass().getResource("/head.png"));
     	head = b.getImage();
-    	ImageIcon c = new ImageIcon("images/body.png");
+    	ImageIcon c = new ImageIcon(getClass().getResource("/body.png"));
     	ball = c.getImage();
     }
-    /**************************************************************************/
-    /*** OVERRIDDEN METHODS ***************************************************/
-    /**************************************************************************/
     /**************************************************************************/
     /*** OVERRIDDEN METHODS ***************************************************/
     /**************************************************************************/
@@ -117,12 +116,6 @@ public class Board extends JPanel implements ActionListener {
         }
         repaint();
 	}
-    /**************************************************************************/
-    /*** HELPER FUNCTIONS *****************************************************/
-    /**************************************************************************/
-    /**************************************************************************/
-    /*** EVENT HANDLERS *******************************************************/
-    /**************************************************************************/
     /**************************************************************************/
     /*** HELPER METHODS *******************************************************/
     /**************************************************************************/
@@ -231,7 +224,7 @@ public class Board extends JPanel implements ActionListener {
         if (x[0] < 0)
             inGame = false;
     }
-         /**************************************************************************/
+    /**************************************************************************/
     /*** KEYADAPTER TO HANDLE KEYEVENTS FROM USER *****************************/
     /**************************************************************************/
     /**
